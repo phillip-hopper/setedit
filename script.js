@@ -91,19 +91,15 @@ jQuery(function() {
     //DW edit link when it is chrome
     
 
-    jQuery('a').click(function (event) 
-    { 
-       var title = jQuery(this).attr("title");
-       //alert(title);
-       if (title.trim().localeCompare('DW Edit')===0) {
-        
-        set_dw_edit();
-       }
-     
-       
-      
+    jQuery('a').click(function (event) {
 
-     });
+      var title = jQuery(this).attr("title");
+
+      // added check for "title" to prevent "TypeError: title is undefined"
+      if (title && (title.trim().localeCompare('DW Edit') === false)) {
+        set_dw_edit();
+      }
+    });
 
     
 
